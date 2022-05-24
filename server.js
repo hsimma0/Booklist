@@ -21,6 +21,61 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 //Middlewarew & BODY PARSER
 app.use(express.urlencoded({extended: true}));
 
+// SEED DATA
+
+// Routes / Controllers
+// Seed
+const bookSeed = require('./models/bookSeed.js');
+
+app.get('/books/seed', (req, res) => {
+	Book.deleteMany({}, (error, allBooks) => {});
+
+	Book.create(bookSeed, (error, data) => {
+		res.redirect('/books');
+	});
+});
+
+// Routes / Controllers
+// Seed
+// app.get('/books/seed', (req, res) => {
+//     Book.deleteMany({}, (error, allBooks) => {});
+
+//     Book.create(
+//         [{
+//                 title: 'Cracking the Coding Interview',
+//                 author: 'Gayle Laakmann McDowell',
+//             },
+//             {
+//                 title: 'HTML and CSS: Design and Build Websites',
+//                 author: 'Jon Duckett',
+//             },
+//             {
+//                 title: 'JavaScript and JQuery: Interactive Front-End Web Development ',
+//                 author: 'jon Duckett',
+//             },
+//             {
+//                 title: "You Don't Know JS Yet",
+//                 author: 'Kyle Simpson',
+//             },
+//             {
+//                 title: 'Design Patterns: Elements of Reusable Object-Oriented Software ',
+//                 author: 'Erich Gamma',
+//             },
+//             {
+//                 title: 'Frontend Unicorn',
+//                 author: 'Michał Malewicz, Szymon Adamiak, Albert Pawłowski, and Albert Walicki',
+//             },
+//             {
+//                 title: "Don't Make Me Think",
+//                 author: 'Steve Krug',
+//             },
+//         ],
+//         (error, data) => {
+//             res.redirect('/books');
+//         }
+//     );
+// });
+
 //ROUTES
 // INDEX
 app.get('/books', (req, res) => {
