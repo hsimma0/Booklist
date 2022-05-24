@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<h1>Books index page</h1>
+		<ul>
+			<% books.forEach(book => { %>
+			
+		<li>
+			<a href="/books/<%=book._id; %>"> <%=book.title; %> </a>
+		</li>
+			<% }) %>
+		</ul>
+		<nav>
+			<a href="/books/new">Add a New Book</a>
+		</nav>
+	</body>
+</html>
